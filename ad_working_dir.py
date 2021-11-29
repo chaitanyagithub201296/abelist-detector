@@ -22,17 +22,19 @@ suggestions_dictionary=wordsData['suggestion words']
 
 
 
-text='I am an abnormal person and an addict and abnormal'
-replacement_words=[]
-words = text.split(' ')
-rep_word=[]
-for word in words:
-    for ab in ableist_dictionary:
+text='I am an abnormal person and an addict and abnormal' ## Example sentence to test the function to replace the ableist words and replace it with the new workds
+replacement_words=[] ## initiating an empty list
+words = text.split(' ') ## Converting a sentence into the list of words in the sentence.
+rep_word=[] ## list of replacement words to be inserted into the sentense
+
+## Function to replace the ableist words with the new replacement words
+for word in words: 
+    for ab in ableist_dictionary:   
             if word == ab:
-                rep_word.append(word)
-                replacement_word = wordsData.loc[wordsData['ablesit words'] == word]['suggestion words']
-                replacement_word=replacement_word.tolist()
-                replacement_word=replacement_word[0].split(',')
+                rep_word.append(word) ## Inserting the replacement word into the replacement words list.
+                replacement_word = wordsData.loc[wordsData['ablesit words'] == word]['suggestion words'] ## Fetching the replacement word for ableist words from the database.
+                replacement_word=replacement_word.tolist() ## including the replacement words list from the database column.
+                replacement_word=replacement_word[0].split(',') 
                 replacement_words.append(replacement_word)
 
 
