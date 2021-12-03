@@ -26,6 +26,10 @@ nltk.download('averaged_perceptron_tagger')
 file_name = ("/Users/chaitanyakunapareddi/Desktop/iconsult/ad/master_db.xlsx")
 
 
+database connection for JD
+'''
+
+
 
 #reading the excel file 
 wordsData = pd.read_excel(file_name)
@@ -48,11 +52,12 @@ print(tokens_sents)
 tokens_words = nltk.word_tokenize(text)
 print(tokens_words)
 
+#punct_words=['.']
 
 #removing stopwordsf= from JD
 filtered_sentence = []
 filtered_sentence = [w for w in tokens_words if w.lower() not in stop_words]
- 
+filtered_sentence = [w for w in filtered_sentence if w.isalnum()]
 
 
 '''
@@ -82,13 +87,15 @@ print(lemmatized_output)
 replacement_words=[]
 words = text.split(' ')
 rep_word=[]
-for word in words:
+
+## Function to replace the ableist words with the new replacement words
+for word in words: 
     for ab in ableist_dictionary:
             if word == ab:
-                rep_word.append(word)
-                replacement_word = wordsData.loc[wordsData['ablesit words'] == word]['suggestion words']
-                replacement_word=replacement_word.tolist()
-                replacement_word=replacement_word[0].split(',')
+                rep_word.append(word) ## Inserting the replacement word into the replacement words list.
+                replacement_word = wordsData.loc[wordsData['ablesit words'] == word]['suggestion words'] ## Fetching the replacement word for ableist words from the database.
+                replacement_word=replacement_word.tolist() ## including the replacement words list from the database column.
+                replacement_word=replacement_word[0].split(',') 
                 replacement_words.append(replacement_word)
 
 
