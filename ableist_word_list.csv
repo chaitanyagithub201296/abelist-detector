@@ -1,0 +1,29 @@
+verb,object_dependent,objects,alternative_verbs,example
+climb,FALSE,,"ascend, raise, work atop",Ascend a ladder to work atop roofs of customers
+touch,FALSE,,"activate, inspect, diagnose",Inspect the thickness of clothing material
+feel,FALSE,,"activate, inspect, diagnose",Inspect the thickness of clothing material
+hand,FALSE,,"move, install, operate, manage, put, place, transfer, transport",Transport boxes from shipping dock to truck
+carry,FALSE,,"move, install, operate, manage, put, place, transfer, transport",Transport boxes from shipping dock to truck
+lift,FALSE,,"move, install, operate, manage, put, place, transfer, transport",Transport boxes from shipping dock to truck
+reach,FALSE,,"move, install, operate, manage, put, place, transfer, transport",Transport boxes from shipping dock to truck
+throw,FALSE,,"move, install, operate, manage, put, place, transfer, transport",Place trash bags inside of garbage bins
+read,FALSE,,"assess, comprehend, discover, distinguish, detect, evaluate, find, identify, interpret, observe, recognize, understand",Detect errors in submitted forms
+see,FALSE,,"assess, comprehend, discover, distinguish, detect, evaluate, find, identify, interpret, observe, recognize, understand",Observe any cars illegally parked in the loading zone
+speak,FALSE,,"communicate, converse, discuss, exchange information, express, signal",Discuss budgets with the CFO
+talk,FALSE,,"communicate, converse, discuss, exchange information, express, signal",Discuss budgets with the CFO
+hear,FALSE,,"communicate, converse, discuss, exchange information, express, signal",Communicate when alarms go off
+stand,FALSE,,stationary position,Must be able to remain in stationary position 50% of the time
+sit,FALSE,,stationary position,Must be able to remain in stationary position 50% of the time
+bend,FALSE,,"lower oneself, drop, move to, turn",Install new ethernet cables under floor rugs
+crouch,FALSE,,"lower oneself, drop, move to, turn",Install new ethernet cables under floor rugs
+kneel,FALSE,,"lower oneself, drop, move to, turn",Install new ethernet cables under floor rugs
+crowd,FALSE,,"lower oneself, drop, move to, turn",Install new ethernet cables under floor rugs
+taste,FALSE,,"detect, distinguish, determine, try",Uncork wine and determine if it is spoiled before pouring for customers
+smell,FALSE,,"detect, distinguish, determine, try",Uncork wine and determine if it is spoiled before pouring for customers
+type,FALSE,,"input, enter, record, write",Input data into a spreadsheet
+walk,FALSE,,"move to, move about, traverse",Moves about the office regularly to meet with staff
+run,FALSE,,"move to, move about, traverse",Moves about the office regularly to meet with staff
+jump,FALSE,,"move to, move about, traverse",Moves about the office regularly to meet with staff
+crawl,FALSE,,"position self, move",Positions self to maintain computers under desks
+stoop,FALSE,,"position self, move",Positions self to maintain computers under desks
+move,TRUE,"hand, eye, finger, arm, leg, foot, wrist, limb, torso, body","observe, operate, transport, transfer, activate",Operates a machine using a lever

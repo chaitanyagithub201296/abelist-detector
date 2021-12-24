@@ -23,11 +23,7 @@ nltk.download('averaged_perceptron_tagger')
 # Give the location of the file
 #location where the excel file is located.
 #must be changed when run in local.
-file_name = ("/Users/chaitanyakunapareddi/Desktop/iconsult/ad/master_db.xlsx")
-
-
-database connection for JD
-'''
+file_name = ("/Users/chaitanyakunapareddi/Desktop/iconsult/AD-Local/master_db.xlsx")
 
 
 
@@ -123,8 +119,7 @@ for line in text2:
 print("No. of mistakes found in document is ", i)
 
 
-
-
+###################  R & D ##########################
 
 
 
