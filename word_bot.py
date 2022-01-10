@@ -59,7 +59,7 @@ abc=collectiondf.groupby(by='word',axis=1)
 ###########################################################
 
 
-
+#check if the word exists in the sentence.
 
 
 
