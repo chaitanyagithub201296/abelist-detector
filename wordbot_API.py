@@ -67,16 +67,15 @@ def get_worddata():
 # methods go here
 pass
 
+somelist =[]
 @app.route('/locations',methods=['POST'])
+@cross_origin()
 def post():
-    new_data=request.get_json()
+    new_data=request.get_json(force=True)
     j_data = json.dumps(new_data)
     json_data=json.loads(j_data)
     df_json=pd.DataFrame(json_data,columns=json_data[0].keys())
-    #print(df_json)
     df_json.columns=['ablesit words','suggestion words']
-    #df_json.rename(columns={'abelistwords': 'ablesit words', 'alternatewords': 'suggestion words'}, inplace=True)
-    print(df_json)
     new_data=wordsData.append(df_json,ignore_index=True)
     new_data.to_csv('wordsData.csv',index=False)
 
