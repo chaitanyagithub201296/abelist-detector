@@ -14,6 +14,8 @@ import pandas as pd
 import ast
 from flask_cors import CORS,cross_origin
 import json
+import re
+
 
 '''reading job descriptions'''
 
@@ -22,13 +24,28 @@ db=pd.read_parquet(prk_file, engine='pyarrow')
 db1=db[['SourceGUID','Company','Description','Title']]
 db1 = db1.dropna(subset=['Description'])
 db1=db1.head(5000)
+db1 = db1.replace('\n','', regex=True)
+ 
+# Function to clean the names
+def Clean_names(desc_data):
+    if re.search('\(.*!@#$%^&*()_+\-=\[\]{};:"\\|/n<>\/?~', desc_data):
+        pos = re.search('\(.*!@#$%^&*()_+\-=\[\]{};:"\\|/n<>\/?~', desc_data).start()
+        return desc_data[:pos]
+    else:
+        # if clean up needed return the same name
+        return desc_data
+
+db1['Description']=db1['Description'].apply(Clean_names)
+
+
 
 ''' reading master DB '''
 file_name = ("master_db.xlsx")
+file_name2=('wordsData.xlsx')
 global wordsData
 wordsData = pd.read_excel(file_name)
-
-
+masterData = pd.read_excel(file_name2)
+print(masterData.shape[0]+1)
 
 ''' setting up API '''
 
@@ -60,27 +77,35 @@ def get():
 # methods go here
 pass
 
+
 @app.route('/worbotdetails',methods=['GET'])
 def get_worddata():
-    details=wordsData.shape[0]+1
+    masterData = pd.read_excel(file_name2)
+    details=masterData.shape[0]+1
+    print(details)
     return {'details': details}, 200  # return data and 200 OK code
 # methods go here
 pass
 
-somelist =[]
+
 @app.route('/locations',methods=['POST'])
 @cross_origin()
 def post():
+    masterData = pd.read_excel(file_name2)
     new_data=request.get_json(force=True)
     j_data = json.dumps(new_data)
     json_data=json.loads(j_data)
     df_json=pd.DataFrame(json_data,columns=json_data[0].keys())
     df_json.columns=['ablesit words','suggestion words']
-    new_data=wordsData.append(df_json,ignore_index=True)
-    new_data.to_csv('wordsData.csv',index=False)
+    new_data=masterData.append(df_json,ignore_index=True)
+    new_data.to_excel('wordsData.xlsx',index=False)
 
-    return 'success', 200 # return data with 200 OK
+    return {'message':'success'}, 200 # return data with 200 OK
 pass
+
+
+
+
   
 
 ''' main function '''
